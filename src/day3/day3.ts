@@ -5,14 +5,16 @@ const filePath = path.join(__dirname, "input.txt");
 const data = readFileSync(filePath, "utf-8");
 const input = data.trim()
 
-function solver(input: string, parte: number) {
+export function solver(input: string, parte: number) {
     
     
     const setCasas = new Set<string>();
     const comandos = input.split("");
     let posicao = [0, 0]
     let movimento = [0, 0];
+    let robo = [0, 0];
 
+    
     setCasas.add(posicao.toString())
     
 
@@ -33,9 +35,18 @@ function solver(input: string, parte: number) {
             default:
                 break;
         }
+        
+        if ( parte === 1 || i % 2 === 0) {
+            posicao = [posicao[0] + movimento[0], posicao[1] + movimento[1]];
+            setCasas.add(posicao.toString());
+        } else {
+            if ( i % 2 === 1) {
+                robo = [robo[0] + movimento[0], robo[1] + movimento[1]];
+                setCasas.add(robo.toString());
+            }
+        }
 
-        posicao = [posicao[0] + movimento[0], posicao[1] + movimento[1]];
-        setCasas.add(posicao.toString())
+
 
         
     }
@@ -44,3 +55,4 @@ function solver(input: string, parte: number) {
 }
 
 console.log(solver(input, 1));
+console.log(solver(input, 2));
