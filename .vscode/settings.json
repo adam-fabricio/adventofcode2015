@@ -1,9 +1,5 @@
 {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    },
-      "eslint.validate": [
-        "typescript"
-      ],
-      "eslint.codeActionsOnSave.rules": null
+    "deno.enable": true,
+    "deno.lint": true,
+    "deno.unstable": ["all"]
 }
