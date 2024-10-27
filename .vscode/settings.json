@@ -1,7 +1,9 @@
 {
-    "eslint.debug": true,
-    "eslint.format.enable": true,
-    "eslint.workingDirectories": [
-        
-    ]
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+      "eslint.validate": [
+        "typescript"
+      ],
+      "eslint.codeActionsOnSave.rules": null
 }
