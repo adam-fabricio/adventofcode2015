@@ -1,8 +1,8 @@
-import {join, fromFileUrl, dirname} from "@std/path";
+import { dirname, fromFileUrl, join } from "@std/path";
 
 const __dirname = dirname(fromFileUrl(import.meta.url));
 const file = join(__dirname, "input.txt");
-const data = Deno.readTextFileSync(file)
+const data = Deno.readTextFileSync(file);
 const input = data.trim();
 
 function calculaDistancia(
@@ -10,7 +10,7 @@ function calculaDistancia(
   naoVisitado: string[],
   distancia: number,
   locais: Map<string, Map<string, number>>,
-  distancias: number[]
+  distancias: number[],
 ): void {
   if (naoVisitado.length == 0) {
     distancias.push(distancia);
@@ -21,7 +21,7 @@ function calculaDistancia(
         number
       >;
       const distanciaProximaCidade: number = subMap.get(
-        proximaCidade
+        proximaCidade,
       ) as number;
       const distanciaAtualizada: number = distancia + distanciaProximaCidade;
       calculaDistancia(
@@ -29,7 +29,7 @@ function calculaDistancia(
         naoVisitado.filter((cidade) => cidade !== proximaCidade),
         distanciaAtualizada,
         locais,
-        distancias
+        distancias,
       );
     });
   }
@@ -65,7 +65,7 @@ export function solver(input: string, part: number) {
       cidades.filter((thisCidade) => cidade != thisCidade),
       0,
       locais,
-      distancias
+      distancias,
     );
   });
   // console.log(distancias);
@@ -78,3 +78,6 @@ export function solver(input: string, part: number) {
 
 console.log("parte 1:", solver(input, 1));
 console.log("parte 2:", solver(input, 2));
+
+const adam = [1, 2, 4];
+adam.forEach((a) => console.log(a));
