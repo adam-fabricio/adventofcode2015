@@ -1,6 +1,9 @@
+#!/usr/bin/env -S deno run --allow-write --allow-read
+
 console.time();
 const fileName = "input.txt";
-const filePath = new URL(fileName, import.meta.url).pathname;
+const filePath = new URL(fileName, import.meta.url);
+console.log(filePath)
 const input = Deno.readTextFileSync(filePath).trim();
 
 
