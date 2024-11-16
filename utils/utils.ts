@@ -11,6 +11,7 @@ export interface ParseDict {
  * @param input - String do arquivo lido
  * @param campoIndices - Array de indices para campos chave
  * @param valorIndices - Array de indices para os valores
+ * @param campoChave? - caso seja fornecido esse campos será a chave
  * @returns um objeto onde as chaves é os valores são outro objecto contendo
  *          pares campo valor
  */
@@ -19,13 +20,14 @@ export function parsingDict(
   input: string,
   campoIndices: number[],
   valorIndices: number[],
+  campoChave?: number,
 ): ParseDict {
 
   const objeto: ParseDict = {};
   input.split("\n").forEach((linha) => {
     const campo = linha.split(" ");
     // A chave do objeto é o primeiro campo.
-    const chave = campo[0];
+    const chave = campoChave ? campo[campoChave] : campo[0];
     objeto[chave] = {};
 
     campoIndices.forEach((campoIndice, indice) => {
