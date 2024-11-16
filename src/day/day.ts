@@ -1,12 +1,15 @@
 #!/usr/bin/env -S deno run --allow-read --allow-write
 
-const fileName = "input.txt";
-const filePath = new URL(fileName, import.meta.url);
-const input = Deno.readTextFileSync(filePath).trim();
+import { leArquivo, parseDict, parsingDict } from "../../utils/utils.ts";
 
-export function solver(input: string, part: number) {
+function solver(input: string, part: number) {
 
 }
+
+
+const entrada = "input.txt";
+const input: string = leArquivo(entrada, import.meta.url);
+
 
 console.log('parte 1:', solver(input, 1));
 // console.log('parte 2:', solver(input, 2));
